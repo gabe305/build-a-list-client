@@ -8,10 +8,11 @@ const { REACT_APP_CLIENT_ID } = process.env;
 
 const spotifyApi = new SpotifyWebApi({
     clientId: REACT_APP_CLIENT_ID,
-
 })
 
-function Dashboard({ code }) {
+
+function Dashboard({ props, setCode, code, setLoggedIn }) {
+    console.log(code)
     const accessToken = useAuth(code)
     const [search, setSearch] = useState("")
     const [searchResults, setSearchResults] = useState([])
@@ -51,6 +52,7 @@ function Dashboard({ code }) {
 
         return () => cancel = true
     }, [search, accessToken])
+
     return (
         <>
             <form

@@ -15,7 +15,7 @@ function Player({ accessToken, trackUri }) {
                 callback={state => {
                     if(!state.isPlaying) setPlay(false)
                 }}
-                play
+                play={play}
                 uris={trackUri ? [trackUri] : []}
             />
         </>
