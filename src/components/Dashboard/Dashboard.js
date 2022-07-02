@@ -10,7 +10,6 @@ const spotifyApi = new SpotifyWebApi({
     clientId: REACT_APP_CLIENT_ID,
 })
 
-
 function Dashboard({ props, setCode, code, setLoggedIn }) {
     console.log(code)
     const accessToken = useAuth(code)

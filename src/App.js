@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import './pages/Login/Login'
 import { useEffect, useState } from 'react';
 import Login from './pages/Login/Login';

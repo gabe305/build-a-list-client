@@ -22,7 +22,6 @@ function useAuth(code) {
             history.push("/dashboard")
         })
         .catch(() => {
-            window.location = '/dashboard'
         })
     }, [code, history])
 

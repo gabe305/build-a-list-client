@@ -1,4 +1,5 @@
 import logo from "../../assets/images/logo.png"
+import "./PageHeader.scss"
 
 
 function PageHeader() {
