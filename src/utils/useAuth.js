@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useHistory } from "react-router-dom"
 
 function useAuth(code) {
     const [accessToken, setAccessToken] = useState()
     const [refreshToken, setRefreshToken] = useState()
     const [expiresIn, setExpiresIn] = useState()
-
-    let history = useHistory()
 
     useEffect(() => {
         axios
@@ -19,11 +16,10 @@ function useAuth(code) {
             setRefreshToken(res.data.refreshToken)
             setExpiresIn(res.data.expiresIn)
             console.log("ayo")
-            history.push("/dashboard")
         })
         .catch(() => {
         })
-    }, [code, history])
+    }, [code])
 
     useEffect(() => {
         if(!refreshToken || !expiresIn) return

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import SpotifyWebApi from "spotify-web-api-node";
 import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 import Player from "../Player/Player";
+import { useNavigate } from "react-router-dom";
 
 const { REACT_APP_CLIENT_ID } = process.env;
 
@@ -10,17 +11,28 @@ const spotifyApi = new SpotifyWebApi({
     clientId: REACT_APP_CLIENT_ID,
 })
 
+const AUTH_URL = 'https://accounts.spotify.com/authorize?client_id=d2f4a0a165d94bcabde9f3bf08fcb7f3&response_type=code&redirect_uri=http://localhost:3000/dashboard/&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state'
+
 function Dashboard({ props, setCode, code, setLoggedIn }) {
-    console.log(code)
+    // console.log(code)
     const accessToken = useAuth(code)
     const [search, setSearch] = useState("")
     const [searchResults, setSearchResults] = useState([])
     const [playingTrack, setPlayingTrack] = useState()
 
+    const navigate = useNavigate();
+
     function chooseTrack(track) {
         setPlayingTrack(track)
         setSearch('')
     }
+
+    useEffect(() => {
+        if(!code) {
+            console.log("joe");
+            window.location.replace(AUTH_URL)
+        }
+    }, [])
 
     useEffect(() => {
         if (!accessToken) return

@@ -6,6 +6,7 @@ import { useEffect } from "react"
 
 function HomePage({ code, setCode }) {
     const query = useQuery()
+
     useEffect(() => {
         setCode(query.get("code"))
         console.log(query.get("code"))
