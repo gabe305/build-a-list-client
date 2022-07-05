@@ -1,16 +1,11 @@
 import { NavLink } from "react-router-dom";
 import staff from "../../assets/images/staff.svg"
 import logo from "../../assets/images/logo.png"
-import useQuery from "../../utils/useQuery"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 
-function HomePage({ code, setCode }) {
-    const query = useQuery()
-
-    useEffect(() => {
-        setCode(query.get("code"))
-        console.log(query.get("code"))
-    }, [code])
+function HomePage({ spotifyApi, accessToken }) {
+    const [code, setCode] = useState()
+    const [loggedIn, setLoggedIn] = useState(false);
 
     return (
         <section>
