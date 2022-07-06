@@ -1,70 +1,262 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <img src="./src/assets/images/logo.png" alt="logo" width="200" height="auto" />
+  <h1>Build-A-List</h1>
+  
+  <p>
+    A Spotify Playlist Builder 
+  </p>
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+<!-- Table of Contents -->
+# :notebook_with_decorative_cover: Table of Contents
 
-### `npm start`
+- [About the Project](#star2-about-the-project)
+  * [Screenshots](#camera-screenshots)
+  * [Tech Stack](#space_invader-tech-stack)
+  * [Features](#dart-features)
+  * [Color Reference](#art-color-reference)
+  * [Environment Variables](#key-environment-variables)
+- [Getting Started](#toolbox-getting-started)
+  * [Prerequisites](#bangbang-prerequisites)
+  * [Installation](#gear-installation)
+  * [Running Tests](#test_tube-running-tests)
+  * [Run Locally](#running-run-locally)
+  * [Deployment](#triangular_flag_on_post-deployment)
+- [Usage](#eyes-usage)
+- [Roadmap](#compass-roadmap)
+- [Contributing](#wave-contributing)
+  * [Code of Conduct](#scroll-code-of-conduct)
+- [FAQ](#grey_question-faq)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
+- [Acknowledgements](#gem-acknowledgements)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- About the Project -->
+## :star2: About the Project
+<div align="center">
+    <p>
+        This project is a Spotify Playlist Builder that dynamically connects to the Spotify API, to not only get user data, but also manipulate it.
+    </p>
+</div>
 
-### `npm test`
+<!-- Screenshots -->
+### :camera: Screenshots
+<div align="center"> 
+  <img src="./assets/images/homepage.png" alt="Home Page" />
+  <p>This is the home page of the site, if you don't see the player at the bottom, you need to login</p>
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<!-- TechStack -->
+### :space_invader: Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://greensock.com/">GreenSock</a></li>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://www.nodejs.org/">Node</a></li>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
+  </ul>
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.mysql.com/">MySQL</a></li>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://redis.io/">Redis</a></li>
+    <li><a href="https://neo4j.com/">Neo4j</a></li>
+    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+  </ul>
+</details>
 
-### `npm run eject`
+<details>
+<summary>DevOps</summary>
+  <ul>
+    <li><a href="https://www.docker.com/">Docker</a></li>
+    <li><a href="https://www.jenkins.io/">Jenkins</a></li>
+    <li><a href="https://circleci.com/">CircleCLI</a></li>
+  </ul>
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<!-- Features -->
+### :dart: Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Feature 1
+- Feature 2
+- Feature 3
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- Color Reference -->
+### :art: Color Reference
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
+| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
+| Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
+| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- Env Variables -->
+### :key: Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run this project, you will need to add the following environment variables to your .env file
 
-### Code Splitting
+`API_KEY`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`ANOTHER_API_KEY`
 
-### Analyzing the Bundle Size
+<!-- Getting Started -->
+## 	:toolbox: Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- Prerequisites -->
+### :bangbang: Prerequisites
 
-### Making a Progressive Web App
+This project uses Yarn as package manager
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+ npm install --global yarn
+```
 
-### Advanced Configuration
+<!-- Installation -->
+### :gear: Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Install my-project with npm
 
-### Deployment
+```bash
+  yarn install my-project
+  cd my-project
+```
+   
+<!-- Running Tests -->
+### :test_tube: Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To run tests, run the following command
 
-### `npm run build` fails to minify
+```bash
+  yarn test test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- Run Locally -->
+### :running: Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Louis3797/awesome-readme-template.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  yarn install
+```
+
+Start the server
+
+```bash
+  yarn start
+```
+
+
+<!-- Deployment -->
+### :triangular_flag_on_post: Deployment
+
+To deploy this project run
+
+```bash
+  yarn deploy
+```
+
+
+<!-- Usage -->
+## :eyes: Usage
+
+Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
+
+
+```javascript
+import Component from 'my-project'
+
+function App() {
+  return <Component />
+}
+```
+
+<!-- Roadmap -->
+## :compass: Roadmap
+
+* [x] Todo 1
+* [ ] Todo 2
+
+
+<!-- Contributing -->
+## :wave: Contributing
+
+<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" />
+</a>
+
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+
+<!-- Code of Conduct -->
+### :scroll: Code of Conduct
+
+Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
+
+<!-- FAQ -->
+## :grey_question: FAQ
+
+- Question 1
+
+  + Answer 1
+
+- Question 2
+
+  + Answer 2
+
+
+<!-- License -->
+## :warning: License
+
+Distributed under the no License. See LICENSE.txt for more information.
+
+
+<!-- Contact -->
+## :handshake: Contact
+
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+
+Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
+
+
+<!-- Acknowledgments -->
+## :gem: Acknowledgements
+
+Use this section to mention useful resources and libraries that you have used in your projects.
+
+ - [Shields.io](https://shields.io/)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
+ - [Readme Template](https://github.com/othneildrew/Best-README-Template)
