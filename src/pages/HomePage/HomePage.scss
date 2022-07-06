@@ -1,0 +1,23 @@
+.home {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+
+    &__hero {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    &__copy-container {
+    }
+
+    &__heading {
+    //     max-width: 18.5625rem;
+    }
+
+    &__link {
+
+    }
+}

@@ -1,0 +1,26 @@
+.search {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__input {
+        margin-top: 16px;
+    }
+
+    &__menu {
+
+    }
+
+    &__result {
+
+    }
+
+    &__player {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+}

@@ -1,8 +1,17 @@
+@use "./partials/fonts" as *;
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
+    font-family: "Patrick Hand";
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
 }

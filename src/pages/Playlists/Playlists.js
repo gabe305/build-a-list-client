@@ -1,24 +1,15 @@
 import { useState, useEffect } from "react"
+import { NavLink } from "react-router-dom"
 import PlaylistSearchResult from "../../components/PlaylistSearchResult/PlaylistSearchResult"
 
-function Playlists({ spotifyApi, accessToken, userId}) {
-    const [playlistResults, setPlaylistResults] = useState()
-
-    // spotifyApi.getUserPlaylists(userId).then((res) => {
-    //     setPlaylistResults(res.body.items.map(playlist => {
-    //         return ({
-    //             title: playlist.name,
-    //             uri: playlist.uri,
-    //             playlistUrl: playlist.images[0]
-    //         })
-    //     }))
-    // })
-
+function Playlists({ playlistResults }) {
     return (
-        <h1>ga</h1>
-        // playlistResults.map((playlist => (
-        //     <PlaylistSearchResult playlist={playlist} />
-        // )))
+        <div>
+            <NavLink to="/playlists/build">Build A Playlist</NavLink>
+            {playlistResults?.map(playlist => (
+                <NavLink to={playlist?.id}><PlaylistSearchResult playlist={playlist} key={playlist?.id}/></NavLink>
+            ))}
+        </div>
     );
 }
 

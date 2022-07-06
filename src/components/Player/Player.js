@@ -9,7 +9,7 @@ function Player({ accessToken, trackUri }) {
     if(!accessToken) return null
     return (  
         <>
-            <SpotifyPlayer 
+            <SpotifyPlayer
                 token={accessToken} 
                 showSaveIcon 
                 callback={state => {

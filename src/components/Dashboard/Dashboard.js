@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react"
 import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 import Player from "../Player/Player";
-import { useNavigate } from "react-router-dom";
-import useQuery from "../../utils/useQuery";
+import "./Dashboard.scss"
 
-function Dashboard({ accessToken, spotifyApi }) {
-    const navigate = useNavigate();
-
+function Dashboard({ accessToken, spotifyApi, playlistResults, userId }) {
     const [search, setSearch] = useState("")
     const [searchResults, setSearchResults] = useState([])
     const [playingTrack, setPlayingTrack] = useState()
@@ -23,37 +20,42 @@ function Dashboard({ accessToken, spotifyApi }) {
         let cancel = false;
         spotifyApi.searchTracks(search).then(res => {
             if (cancel) return
-            setSearchResults(res.body.tracks.items.map(track => {
-                const smallestAlbumImage = track.album.images.reduce((smallest, image) => {
-                    if (image.height < smallest.height) return image
-                    return smallest
-                }, track.album.images[0])
-
-                return ({
-                    artist: track.artists[0].name,
-                    title: track.name,
-                    uri: track.uri,
-                    albumUrl: smallestAlbumImage.url
+            setSearchResults(
+                res.body.tracks.items.map(track => {
+                    const smallestAlbumImage = track.album.images.reduce(
+                        (smallest, image) => {
+                            if (image.height < smallest.height) return image
+                            return smallest
+                        },
+                        track.album.images[0]
+                    )
+                    return {
+                        artist: track.artists[0].name,
+                        title: track.name,
+                        uri: track.uri,
+                        albumUrl: smallestAlbumImage.url
+                    }
                 })
-            }))
-        })
+            )
+        }).catch(err => console.log(err))
 
         return () => cancel = true
     }, [search, accessToken])
 
     return (
-        <>
-            <form placeholder="Search for a song or artist" className="search">
-                <input type="text" className="search__input" value={search} onChange={e => setSearch(e.target.value)} />
-            </form>
+        <div className="search">
+            <input type="text" className="search__input" placeholder="Search for a song or artist" value={search} onChange={e => setSearch(e.target.value)} />
 
-            <div className="search__results">
+            <div className="search__menu">
                 {searchResults.map(track => (
-                    <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack} />
+                    <TrackSearchResult className="search__result" track={track} key={track.uri} chooseTrack={chooseTrack} playlistResults={playlistResults} userId={userId} />
                 ))}
             </div>
-            <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} /></div>
-        </>
+            <div
+                className="search__player" >
+                <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+            </div>
+        </div>
     );
 }
 

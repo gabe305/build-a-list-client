@@ -1,17 +1,28 @@
+@use "../../partials/colors" as *;
+
 .header {
     display: flex;
-    width: 90%;
-    margin: auto;
-    justify-content: space-between;
+    width: 100%;
+    padding-inline: 16px;
+    justify-content: space-around;
     align-items: center;
+    background-color: $lowlight-color;
 
     &__logo {
-
+        width: 100px;
     }
 
     &__nav {
         width: 20%;
     } 
+
+    &__build-link {
+        &::before {
+            content: url(../../assets/icons/plus-sign-svgrepo-com.svg);
+            width: 15px;
+            display: inline-block
+        }
+    }
 }
 
 .nav {
