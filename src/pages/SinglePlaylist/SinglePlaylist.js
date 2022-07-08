@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PlaylistTrack from "../../components/PlaylistTrack/PlaylistTrack";
+import sampleImage from "../../assets/images/sample-image.svg"
 
 function SinglePlaylist({ spotifyApi }) {
     const { playlistid } = useParams()
@@ -13,9 +14,9 @@ function SinglePlaylist({ spotifyApi }) {
     }, [playlistid])
 
     return (  
-        <div>
-            <h1>{playlist?.name}</h1>
-            <img src={playlist?.images[0].url} />
+        <div className="single-playlist">
+            <h1 className="single-playlist__title">{playlist?.name}</h1>
+            <img className="single-playlist__img"src={playlist?.images[0]?.url || sampleImage} />
             {playlist?.tracks.items.map(track => {
                 return <PlaylistTrack track={track.track} key={track.uri}/>
             })}

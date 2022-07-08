@@ -1,3 +1,9 @@
+@use "../../partials/colors" as *;
+
+input:focus {
+    outline:none;
+}
+
 .search {
     width: 100%;
     display:flex;
@@ -6,11 +12,22 @@
     flex-direction: column;
 
     &__input {
-        margin-top: 16px;
+        margin-block: 16px;
+        border: 1px solid $primary-color;
+        border-radius: 10px;
+        padding: 5px;
+        width: 81%;
+        margin-inline: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        &:focus { 
+            border: 1px solid $primary-color;
+        }
     }
 
     &__menu {
-
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__result {

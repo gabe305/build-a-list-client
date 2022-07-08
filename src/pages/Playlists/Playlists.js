@@ -5,7 +5,6 @@ import PlaylistSearchResult from "../../components/PlaylistSearchResult/Playlist
 function Playlists({ playlistResults }) {
     return (
         <div>
-            <NavLink to="/playlists/build">Build A Playlist</NavLink>
             {playlistResults?.map(playlist => (
                 <NavLink to={playlist?.id}><PlaylistSearchResult playlist={playlist} key={playlist?.id}/></NavLink>
             ))}

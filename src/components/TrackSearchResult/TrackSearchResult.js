@@ -1,6 +1,8 @@
 import { useState } from "react";
 import playlistAdd from "../../assets/icons/playlistAdd.svg"
 import PlaylistModal from "../PlaylistModal/PlaylistModal"
+import "./TrackSearchResult.scss"
+
 function TrackSearchResult({ track, chooseTrack, playlistResults, userId }) {
     const [show, setShow] = useState(false)
 
@@ -16,10 +18,12 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId }) {
         return (
             <>
                 <PlaylistModal setShow={setShow} show={show} playlistResults={playlistResults} userId={userId}/>
-                <div>
-                    <img src={track.albumUrl} onClick={handlePlay} />
-                    <p>{track.title}</p>
-                    <img src={playlistAdd} onClick={showModal} />
+                <div className="song" onClick={handlePlay}>
+                    <img className="song__image" src={track.albumUrl} />
+                    <div class="song__right-container">
+                        <p className="song__title">{track.title}</p>
+                        <img className="song__playlistAdd-btn" src={playlistAdd} onClick={showModal} />
+                    </div>
                 </div>
             </>
         )
@@ -27,10 +31,10 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId }) {
     
     return (
         <>
-            <div>
-                <img src={track.albumUrl} onClick={handlePlay} />
-                <p>{track.title}</p>
-                <img src={playlistAdd} onClick={showModal} />
+            <div className="song">
+                <img className="song__image" src={track.albumUrl} onClick={handlePlay} />
+                <p className="song__title">{track.title}</p>
+                <img className="song__playlistAdd-btn" src={playlistAdd} onClick={showModal} />
             </div>
         </>
     );

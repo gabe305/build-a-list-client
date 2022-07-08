@@ -1,15 +1,29 @@
 @use "../../partials/colors" as *;
+@use "../../partials/mixins" as *;
 
 .header {
     display: flex;
     width: 100%;
-    padding-inline: 16px;
-    justify-content: space-around;
+    padding-inline: 15%;
+    justify-content: space-between;
     align-items: center;
     background-color: $lowlight-color;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px;
+
+    &--solo {
+        justify-content: center;
+    }
+
+    @include tablet {
+        padding-inline: 9.5%;
+    }
 
     &__logo {
         width: 100px;
+
+        &--center {
+            width: 90%;
+        }
     }
 
     &__nav {

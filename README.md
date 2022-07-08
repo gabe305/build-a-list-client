@@ -15,25 +15,13 @@
 - [About the Project](#star2-about-the-project)
   * [Screenshots](#camera-screenshots)
   * [Tech Stack](#space_invader-tech-stack)
-  * [Features](#dart-features)
-  * [Color Reference](#art-color-reference)
   * [Environment Variables](#key-environment-variables)
 - [Getting Started](#toolbox-getting-started)
   * [Prerequisites](#bangbang-prerequisites)
-  * [Installation](#gear-installation)
-  * [Running Tests](#test_tube-running-tests)
   * [Run Locally](#running-run-locally)
-  * [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
-- [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-  * [Code of Conduct](#scroll-code-of-conduct)
-- [FAQ](#grey_question-faq)
-- [License](#warning-license)
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
-
-  
 
 <!-- About the Project -->
 ## :star2: About the Project
@@ -46,9 +34,9 @@
 <!-- Screenshots -->
 ### :camera: Screenshots
 <div align="center"> 
-  <img src="./assets/images/homepage.png" alt="Home Page" />
+  <img src="./src/assets/images/homepage.png" alt="Home Page" />
   <p>This is the home page of the site, if you don't see the player at the bottom, you need to login</p>
-  <img src="./assets/images/buildpage.png" alt="Build Page" />
+  <img src="./src/assets/images/buildpage.png" alt="Build Page" />
   <p>This is the page where you build playlists</p>
 
 </div>
@@ -61,6 +49,7 @@
   <ul>
     <li><a href="https://greensock.com/">GreenSock</a></li>
     <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://sass-lang.com/">Sass</a></li>
   </ul>
 </details>
 
@@ -99,41 +88,57 @@ Clone the project
   git clone https://github.com/gabe305/build-a-list-server.git
 ```
 
-Go to the spotify developer website, then navigate to the dashboard
+Go to the spotify developer website, then navigate to the dashboard to login.
 
-<img src="
+<img src="./src/assets/images/dashboard-login.png" alt="initial dashboard login page/>
+
+You will then be taken to the dashboard once logged, you should then "create an app".
+
+<img src="./src/assets/images/dashboard-logged-in.png" alt="logged in dashboard page"/>
+
+For the purposes of trying this app, the app name and description don't need to be anything specific, however you must check the box to progress.
+
+<img src="./src/assets/images/create-app-page.png" />
+
+After creating an app you will be taken to this page, where you will then click the button "Edit Settings".
+
+<img src="./src/assets/images/dashboard-page.png" />
+
+While in this menu, you must change Redirect URIs to include your local host server, mine was http://localhost:3000, after doing so, save and exit which will be at the bottom of this modal.
+
+<img src="./src/assets/images/redirect-uri.png" />
+
+Now that you've gotten all the spotify work done you simply need to transfer the redirect uri, client id, and client secret information to your env file on the react app. 
+
+You will also need to change the auth_url variable in the react app, in the home page file to include your redirect url, and client id.
 
 Install dependencies
 
-```bash
-  yarn install
+```bash 
+  npm install
 ```
 
 Start the server
 
 ```bash
-  yarn start
+  npm start
 ```
 
 <!-- Usage -->
 ## :eyes: Usage
 
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
+This project can be used to build and format Spotify playlists in an easier way, to allow for ease of access. In the future you will also be able to friend people and share playlists.
 
 <!-- Contact -->
 ## :handshake: Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
-
+Gabriel Cruz - [LinkedIn](https://www.linkedin.com/in/gabriel-cruz-49129b222/) - gabecruz718@gmail.com
 
 <!-- Acknowledgments -->
 ## :gem: Acknowledgements
 
 Use this section to mention useful resources and libraries that you have used in your projects.
 
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
+ - [Spotify-Web-Api-Node](https://www.npmjs.com/package/spotify-web-api-node)
+ - [React-Spotify-Web-Playback](https://www.npmjs.com/package/react-spotify-web-playback)
+

@@ -1,0 +1,32 @@
+@use "../../partials/colors" as *;
+
+.song {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    border: 1px solid $primary-color; 
+    overflow: hidden;
+    align-items: flex-start;
+    padding: 5px;
+
+    &__image {
+        width: 70px;
+        height: 30px;
+    }
+
+    &__right-container {
+        
+    }
+
+    &__title {
+        width: 50px;
+        height: 30px;
+        margin-top: 0;
+    }
+
+    &__playlistAdd-btn {
+        width: 30px;
+        height: 30px;
+    }
+}
+            

@@ -1,23 +1,37 @@
+@use "../../partials/colors" as *;
+@use "../../partials/mixins" as *;
+
 .home {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
+    @include tablet {
+        width: 80%;
+    }
 
     &__hero {
         width: 70%;
         max-width: 300px;
+        overflow: hidden;
+        flex-grow: 1;
     }
 
     &__copy-container {
+        margin-bottom: 8px;
+        flex-grow: 1;
     }
 
     &__heading {
-    //     max-width: 18.5625rem;
+        max-width: 18.5625rem;
     }
 
     &__link {
-
+        border: 1px solid $primary-color;
+        border-radius: 15px;
+        padding: 5px 15px;
+        background-color: $lowlight-color;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
 }

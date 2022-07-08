@@ -1,18 +1,29 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/colors" as *;
+
 .build-form {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 67%;
     margin: auto;
     margin-top: 16px;
     align-items: flex-start;
+
+    @include tablet {
+        width: 40%;
+        margin-bottom: 16px;
+    }
 
     &__label {
         margin-right: 16px;
     }
 
     &__input-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
         &:nth-child(2) {
-            display: flex;
             align-items: flex-start;
             margin-block: 8px;
         }
@@ -20,9 +31,14 @@
 
     &__input {
         width: 169px;
+        border: 1px solid $primary-color;
+        border-radius: 10px;
+        padding: 5px;
+        resize: none;
     }
 
     &__btn {
+        @include btn;
     }
 
     &__animation {

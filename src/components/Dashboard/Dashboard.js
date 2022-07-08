@@ -44,7 +44,7 @@ function Dashboard({ accessToken, spotifyApi, playlistResults, userId }) {
 
     return (
         <div className="search">
-            <input type="text" className="search__input" placeholder="Search for a song or artist" value={search} onChange={e => setSearch(e.target.value)} />
+            <input type="text" className="search__input" placeholder="Search for a song" value={search} onChange={e => setSearch(e.target.value)} />
 
             <div className="search__menu">
                 {searchResults.map(track => (

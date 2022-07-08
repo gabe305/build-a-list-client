@@ -1,6 +1,8 @@
 import { useState } from "react";
 import GuitarAnimation from "../../components/GuitarAnimation/GuitarAnimation";
-import "./BuildPlaylist.scss"
+import "./BuildPlaylist.scss";
+import sampleImage from "../../assets/images/sample-image.svg"
+import { useNavigate } from "react-router-dom"
 
 const initialValues = {
     title: "",
@@ -9,6 +11,7 @@ const initialValues = {
 
 function BuildPlaylist({ spotifyApi, userId }) {
     const [values, setValues] = useState(initialValues)
+    const navigate = useNavigate()
 
     const handleInput = (e) => {
         const { name, value } = e.target;
@@ -20,7 +23,11 @@ function BuildPlaylist({ spotifyApi, userId }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        spotifyApi.createPlaylist(values.title, {"description": values.description, "public": true}).then(res => e.target.reset())
+        console.log(sampleImage)
+        spotifyApi.createPlaylist(values.title, {"description": values.description, "public": true}).then(res => {
+            e.target.reset()
+            navigate("/playlists/" + res.body.id)
+        })
     }
 
     return (

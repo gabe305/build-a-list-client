@@ -1,8 +1,10 @@
+import "./PlaylistSearchResult.scss"
+
 function PlaylistSearchResult({ playlist }) {
     return (
-        <div> 
-            <h2>{playlist.title}</h2>
-            <img src={playlist.playlistUrl?.url}/>
+        <div className="playlist"> 
+            <img className="playlist__img" src={playlist.playlistUrl?.url}/>
+            <h2 className="playlist__title">{playlist.title}</h2>
         </div>
     );
 }

@@ -20,7 +20,7 @@ const spotifyApi = new SpotifyWebApi({
 })
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState()
+  const [loggedIn, setLoggedIn] = useState(false)
   const [userId, setUserId] = useState('')
   const [playlistResults, setPlaylistResults] = useState([])
 
@@ -29,10 +29,10 @@ function App() {
   const code = query.get("code")
 
   const accessToken = useAuth(code)
-
   
   useEffect(() => {
     if (!accessToken) return
+    setLoggedIn(true)
     spotifyApi.setAccessToken(accessToken)
     spotifyApi.getMe().then((res) => {
       setUserId(res.body.id)
@@ -40,7 +40,7 @@ function App() {
     if(userId) {
       spotifyApi.getUserPlaylists(userId).then((res) => {
           setPlaylistResults(res.body.items.map(playlist => {
-              return ({
+            return ({
                   owner: playlist.owner.id,
                   title: playlist.name,
                   id: playlist.id,
@@ -56,7 +56,7 @@ function App() {
         <PageHeader loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Dashboard accessToken={accessToken} setLoggedIn={setLoggedIn} spotifyApi={spotifyApi} playlistResults={playlistResults} userId={userId}/>
         <Routes>
-          <Route path="/" element={<HomePage spotifyApi={spotifyApi} accessToken={accessToken}/>} />
+          <Route path="/" element={<HomePage spotifyApi={spotifyApi} accessToken={accessToken} loggedIn={loggedIn}/>} />
           <Route path="login" element={<Login />} />
           <Route path="playlists" element={<Playlists playlistResults={playlistResults} accessToken={accessToken} spotifyApi={spotifyApi} userId={userId}/>} />
           <Route path="playlists/:playlistid" element={<SinglePlaylist accessToken={accessToken} spotifyApi={spotifyApi} userId={userId}/>} />

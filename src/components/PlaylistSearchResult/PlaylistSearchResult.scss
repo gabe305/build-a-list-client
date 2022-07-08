@@ -1,0 +1,14 @@
+.playlist {
+    display: flex;
+    width: 90%;
+    margin: auto;
+
+    &__title {
+         
+    }
+
+    &__img {
+        width: 30%;
+        margin-right: 16px;
+    }
+}
