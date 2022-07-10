@@ -10,7 +10,7 @@ function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMo
         spotifyApi.getPlaylist(playlistid).then(res => {
             setChosenPlaylist(res.body)
         })
-    }, [playlistid])
+    }, [playlistid, chosenPlaylist])
 
     const buildHandler = () => {
         setBuildMode(!buildMode)
@@ -22,7 +22,7 @@ function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMo
             <div className="single-playlist">
                 <div className="single-playlist__info-side">
                     <h2 className="single-playlist__title">{chosenPlaylist?.name}</h2>
-                    <img className="single-playlist__img"src={chosenPlaylist?.images[0]?.url || sampleImage} />
+                    {/* <img className="single-playlist__img" src={chosenPlaylist?.images[0]?.url || sampleImage} /> */}
                 </div>
                 <div className="single-playlist__info-side">
                     <div className="single-playlist__info-top">
