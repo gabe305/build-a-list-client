@@ -23,12 +23,22 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userId, setUserId] = useState('')
   const [playlistResults, setPlaylistResults] = useState([])
+  const [chosenPlaylist, setChosenPlaylist] = useState('')
+  const [buildMode, setBuildMode] = useState(false)
+  const [chosenSongs, setChosenSongs] = useState([])
 
   const query = useQuery()
 
   const code = query.get("code")
 
   const accessToken = useAuth(code)
+  
+  useEffect(() => {
+    if(buildMode === false) {
+      setChosenSongs([])
+      setChosenPlaylist('')
+    }
+  }, [buildMode, loggedIn. chosenPlaylist])
   
   useEffect(() => {
     if (!accessToken) return
@@ -53,13 +63,13 @@ function App() {
 
   return (
     <div className="App">
-        <PageHeader loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-        <Dashboard accessToken={accessToken} setLoggedIn={setLoggedIn} spotifyApi={spotifyApi} playlistResults={playlistResults} userId={userId}/>
+        <PageHeader spotifyApi={spotifyApi} chosenPlaylist={chosenPlaylist} chosenSongs={chosenSongs} buildMode={buildMode} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+        <Dashboard chosenSongs={chosenSongs} setChosenSongs={setChosenSongs} buildMode={buildMode} setBuildMode={setBuildMode} chosenPlaylist={chosenPlaylist} setChosenPlaylist={setChosenPlaylist}  accessToken={accessToken} setLoggedIn={setLoggedIn} spotifyApi={spotifyApi} playlistResults={playlistResults} userId={userId}/>
         <Routes>
           <Route path="/" element={<HomePage spotifyApi={spotifyApi} accessToken={accessToken} loggedIn={loggedIn}/>} />
           <Route path="login" element={<Login />} />
           <Route path="playlists" element={<Playlists playlistResults={playlistResults} accessToken={accessToken} spotifyApi={spotifyApi} userId={userId}/>} />
-          <Route path="playlists/:playlistid" element={<SinglePlaylist accessToken={accessToken} spotifyApi={spotifyApi} userId={userId}/>} />
+          <Route path="playlists/:playlistid" element={<SinglePlaylist chosenSongs={chosenSongs} setChosenSongs={setChosenSongs} buildMode={buildMode} setBuildMode={setBuildMode} chosenPlaylist={chosenPlaylist} setChosenPlaylist={setChosenPlaylist} accessToken={accessToken} spotifyApi={spotifyApi} userId={userId}/>} />
           <Route path="playlists/build" element={<BuildPlaylist accessToken={accessToken} spotifyApi={spotifyApi} userId={userId}/>} />
         </Routes>
     </div>

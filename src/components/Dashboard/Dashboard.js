@@ -3,7 +3,7 @@ import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 import Player from "../Player/Player";
 import "./Dashboard.scss"
 
-function Dashboard({ accessToken, spotifyApi, playlistResults, userId }) {
+function Dashboard({ accessToken, spotifyApi, playlistResults, userId, buildMode, setBuildMode, chosenPlaylist, setChosenSongs, chosenSongs }) {
     const [search, setSearch] = useState("")
     const [searchResults, setSearchResults] = useState([])
     const [playingTrack, setPlayingTrack] = useState()
@@ -48,7 +48,7 @@ function Dashboard({ accessToken, spotifyApi, playlistResults, userId }) {
 
             <div className="search__menu">
                 {searchResults.map(track => (
-                    <TrackSearchResult className="search__result" track={track} key={track.uri} chooseTrack={chooseTrack} playlistResults={playlistResults} userId={userId} />
+                    <TrackSearchResult className="search__result" track={track} key={track.uri} chosenPlaylist={chosenPlaylist} setChosenSongs={setChosenSongs} chosenSongs={chosenSongs} chooseTrack={chooseTrack} playlistResults={playlistResults} userId={userId} buildMode={buildMode} />
                 ))}
             </div>
             <div

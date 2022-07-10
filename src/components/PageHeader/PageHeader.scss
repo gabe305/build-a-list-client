@@ -9,9 +9,14 @@
     align-items: center;
     background-color: $lowlight-color;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px;
+    min-height: 2.8125rem;
 
     &--solo {
         justify-content: center;
+    }
+
+    &--build {
+        
     }
 
     @include tablet {
@@ -19,10 +24,9 @@
     }
 
     &__logo {
-        width: 100px;
+        width: 90%;
 
         &--center {
-            width: 90%;
         }
     }
 
@@ -31,6 +35,7 @@
     } 
 
     &__build-link {
+        font-size: 1.7rem;
         &::before {
             content: url(../../assets/icons/plus-sign-svgrepo-com.svg);
             width: 15px;
@@ -40,7 +45,6 @@
 }
 
 .nav {
-
     &__list {
         list-style-type: none;
         margin: 0;
@@ -50,7 +54,7 @@
     }
 
     &__item {
-
+        font-size: 1.7rem;
     }
 }
 

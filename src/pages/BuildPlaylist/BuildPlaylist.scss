@@ -1,6 +1,11 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/colors" as *;
 
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+ }
+
 .build-form {
     display: flex;
     flex-direction: column;

@@ -1,7 +1,9 @@
 @use "../../partials/colors" as *;
 
-input:focus {
-    outline:none;
+input:focus, textarea, input {
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .search {

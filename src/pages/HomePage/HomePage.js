@@ -31,10 +31,10 @@ function HomePage({ spotifyApi, accessToken, loggedIn }) {
 
     const homeButtonEnter = (element) => {
         if(element === "profile") {
-            profileButtonTween.current.play();
+            profileButtonTween.current?.play();
         }
         if(element === "login") {
-            loginButtonTween.current.play();
+            loginButtonTween.current?.play();
         }
     }
 

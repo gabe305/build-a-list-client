@@ -3,8 +3,8 @@ import playlistAdd from "../../assets/icons/playlistAdd.svg"
 import PlaylistModal from "../PlaylistModal/PlaylistModal"
 import "./TrackSearchResult.scss"
 
-function TrackSearchResult({ track, chooseTrack, playlistResults, userId }) {
-    const [show, setShow] = useState(false)
+function TrackSearchResult({ track, chooseTrack, playlistResults, userId, chosenPlaylist, setChosenSongs, chosenSongs, buildMode }) {
+    const [show, setShow] = useState(false);
 
     function handlePlay() {
         chooseTrack(track)
@@ -12,6 +12,10 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId }) {
     
     function showModal() {
         setShow(true)
+    }
+
+    const playlistAddHandler = () => {
+        setChosenSongs([...chosenSongs, track.uri])
     }
 
     if(show) {
@@ -34,7 +38,7 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId }) {
             <div className="song">
                 <img className="song__image" src={track.albumUrl} onClick={handlePlay} />
                 <p className="song__title">{track.title}</p>
-                <img className="song__playlistAdd-btn" src={playlistAdd} onClick={showModal} />
+                <img className="song__playlistAdd-btn" src={playlistAdd} onClick={playlistAddHandler} />
             </div>
         </>
     );
