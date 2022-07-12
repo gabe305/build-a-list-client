@@ -30,6 +30,14 @@ input:focus, textarea, input {
     &__menu {
         display: flex;
         flex-wrap: wrap;
+        position: absolute;
+        z-index: 5;
+        background-color: #BBBBBB;
+        top: 17%;
+        justify-content: center;
+        opacity: 0.99;
+        width: 90%;
+        margin: auto;
     }
 
     &__result {
@@ -41,5 +49,6 @@ input:focus, textarea, input {
         bottom: 0;
         right: 0;
         left: 0;
+        z-index: 5;
     }
 }

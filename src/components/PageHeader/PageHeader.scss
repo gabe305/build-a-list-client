@@ -25,6 +25,8 @@
 
     &__logo {
         width: 90%;
+        position: relative;
+        right: 5px;
 
         &--center {
         }
@@ -36,6 +38,8 @@
 
     &__build-link {
         font-size: 1.7rem;
+        position: relative;
+        right: 20px;
         &::before {
             content: url(../../assets/icons/plus-sign-svgrepo-com.svg);
             width: 15px;

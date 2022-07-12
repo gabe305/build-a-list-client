@@ -2,9 +2,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PlaylistTrack from "../../components/PlaylistTrack/PlaylistTrack";
 import sampleImage from "../../assets/images/sample-image.svg"
+import "./SinglePlaylist.scss"
 
 function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMode, setBuildMode }) {
     const { playlistid } = useParams()
+    const [img, setImg] = useState()
+
+    useEffect(() => {
+        if(chosenPlaylist) {
+            setImg(chosenPlaylist?.images[0])
+        }
+    }, [chosenPlaylist])
 
     useEffect(() => {
         spotifyApi.getPlaylist(playlistid).then(res => {
@@ -20,11 +28,11 @@ function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMo
         <section className="single-playlist__page">
             <button className="single-playlist__builder-mode" onClick={buildHandler}>Builder Mode!</button>
             <div className="single-playlist">
-                <div className="single-playlist__info-side">
+                <div className="single-playlist__info-side single-playlist__info-side--title-img">
                     <h2 className="single-playlist__title">{chosenPlaylist?.name}</h2>
-                    {/* <img className="single-playlist__img" src={chosenPlaylist?.images[0]?.url || sampleImage} /> */}
+                    <img className="single-playlist__img" alt="playlist thumbnail" src={img?.url || sampleImage} />
                 </div>
-                <div className="single-playlist__info-side">
+                <div className="single-playlist__info-side single-playlist__info-side--metrics">
                     <div className="single-playlist__info-top">
                         <div className="single-playlist__info-single">
                             <h3 className="single-playlist__info-label">Followers</h3>
@@ -40,21 +48,20 @@ function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMo
                         <p className="single-playlist__info">{chosenPlaylist?.description}</p>
                     </div>
                 </div>
-
-                {buildMode && chosenPlaylist ? 
-                    <div className="single-playlist__tracks">
-                        {chosenPlaylist?.tracks?.items.map(track => {
-                            return <PlaylistTrack track={track.track} key={track.uri}/>
-                        })}
-                    </div>
-                :
-                    <div className="single-playlist__tracks">
-                        {chosenPlaylist?.tracks?.items.map(track => {
-                            return <PlaylistTrack track={track.track} key={track.uri}/>
-                        })}
-                    </div>
-                }
             </div>
+            {buildMode && chosenPlaylist ? 
+                <div className="single-playlist__tracks">
+                    {chosenPlaylist?.tracks?.items.map(track => {
+                        return <PlaylistTrack track={track.track} key={track.uri}/>
+                    })}
+                </div>
+            :
+                <div className="single-playlist__tracks">
+                    {chosenPlaylist?.tracks?.items.map(track => {
+                        return <PlaylistTrack track={track.track} key={track.uri}/>
+                    })}
+                </div>
+            }
         </section>
     );
 }

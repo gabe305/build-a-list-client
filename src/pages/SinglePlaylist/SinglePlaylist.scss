@@ -1,13 +1,80 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/colors" as *;
+
 .single-playlist {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    position: relative;
+    right: 35px;
+
+    &__page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__builder-mode {
+        @include btn;
+        align-self: center;
+        margin-block: 16px;
+        position: relative;
+        left: 16px;
+    }
+
+    &__info-side {
+        display: flex;
+        flex-direction: column;
+        
+        &--title-img {
+            align-items: center;
+        }
+
+        &--metrics {
+            
+        }
+    }
+
     &__title {
-    
+        flex-grow: 1;
+        margin-top: 0;
     }
 
     &__img {
-    
+        border-radius: 50%;
+        width: 60%;
+        flex-grow: 1;
     }
 
-    &__track {
-    
+    &__info-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+        width: 90%;
+    }
+
+    &__info-single {
+        &:first-child {
+            margin-right: 16px;
+        }
+    }
+
+    &__info-label {
+        margin-top: 0;
+    }
+
+    &__info {
+        background-color: $secondary-color;
+        opacity: 0.75;
+        border-radius: 32px;
+        width: 100%;
+        padding: 8px 24px;
+        color: white;
+        text-align: center;
+    }
+
+    &__tracks {
+        
     }
 }
+
