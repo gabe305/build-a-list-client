@@ -1,8 +1,5 @@
 import { NavLink } from "react-router-dom";
-import staff from "../../assets/images/staff.svg"
-import logo from "../../assets/images/logo.png"
 import { useState, useEffect, useRef } from "react"
-import bird from "../../assets/images/bird.svg";
 import "./HomePage.scss";
 import BirdAnimation from "../../components/BirdAnimation/BirdAnimation";
 import { gsap } from "gsap";
@@ -44,8 +41,8 @@ function HomePage({ spotifyApi, accessToken, loggedIn }) {
         }
         if(element === "login") {
             loginButtonTween.current.reverse();
-        }    }
-
+        }    
+    }
 
     if(loggedIn) {
         return (

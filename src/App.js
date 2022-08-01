@@ -63,7 +63,7 @@ function App() {
 
   return (
     <div className="App">
-        <PageHeader spotifyApi={spotifyApi} chosenPlaylist={chosenPlaylist} chosenSongs={chosenSongs} buildMode={buildMode} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+        <PageHeader spotifyApi={spotifyApi} chosenPlaylist={chosenPlaylist} chosenSongs={chosenSongs} setChosenSongs={setChosenSongs} buildMode={buildMode} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Dashboard chosenSongs={chosenSongs} setChosenSongs={setChosenSongs} buildMode={buildMode} setBuildMode={setBuildMode} chosenPlaylist={chosenPlaylist} setChosenPlaylist={setChosenPlaylist}  accessToken={accessToken} setLoggedIn={setLoggedIn} spotifyApi={spotifyApi} playlistResults={playlistResults} userId={userId}/>
         <Routes>
           <Route path="/" element={<HomePage spotifyApi={spotifyApi} accessToken={accessToken} loggedIn={loggedIn}/>} />

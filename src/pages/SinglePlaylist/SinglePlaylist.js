@@ -1,12 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import PlaylistTrack from "../../components/PlaylistTrack/PlaylistTrack";
 import sampleImage from "../../assets/images/sample-image.svg"
 import "./SinglePlaylist.scss"
+import { gsap } from "gsap"
 
 function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMode, setBuildMode }) {
     const { playlistid } = useParams()
     const [img, setImg] = useState()
+    const buildButton = useRef()
+    const buildButtonTween = useRef()
+    
+    useEffect(() => {
+        buildButtonTween.current = gsap.to(buildButton.current, {
+            backgroundColor: "#f95d9b",
+            paused: true
+        });
+    }, [])
+
+    const buildEnterHandler = () => {
+        buildButtonTween.current?.play();
+    }
+    
+    const buildLeaveHandler = () => {
+        buildButtonTween.current.reverse();
+    }
+    
+    const buildHandler = () => {
+        setBuildMode(!buildMode)
+    }
 
     useEffect(() => {
         if(chosenPlaylist) {
@@ -19,14 +41,10 @@ function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMo
             setChosenPlaylist(res.body)
         })
     }, [playlistid, chosenPlaylist])
-
-    const buildHandler = () => {
-        setBuildMode(!buildMode)
-    }
-
+    
     return (  
         <section className="single-playlist__page">
-            <button className="single-playlist__builder-mode" onClick={buildHandler}>Builder Mode!</button>
+            <button className="single-playlist__builder-mode" ref={buildButton} onMouseEnter={buildEnterHandler} onMouseLeave={buildLeaveHandler} onClick={buildHandler}>Builder Mode!</button>
             <div className="single-playlist">
                 <div className="single-playlist__info-side single-playlist__info-side--title-img">
                     <h2 className="single-playlist__title">{chosenPlaylist?.name}</h2>

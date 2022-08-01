@@ -4,29 +4,26 @@ import { NavLink, Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
 
-function PageHeader({ loggedIn, buildMode, chosenPlaylist, chosenSongs, spotifyApi }) {
+function PageHeader({ loggedIn, buildMode, chosenPlaylist, chosenSongs, setChosenSongs, spotifyApi }) {
     const headerRef = useRef()
 
     const submitSongsHandler = () => {
-        console.log(chosenSongs)
-        if(chosenSongs) {
+        if (chosenSongs) {
             spotifyApi.addTracksToPlaylist(chosenPlaylist?.id, [...chosenSongs])
-                .then(function(data) {
-                    console.log('Added tracks to playlist!', data);
-                }, function(err) {
-                    console.log('Something went wrong!', err);
+                .then(data => {
+                    setChosenSongs([])
                 });
         }
     }
 
-    if(buildMode) {
+    if (buildMode) {
         gsap.to(headerRef.current, {
             backgroundColor: "#f95d9b",
             duration: 3,
             ease: "back.out(1.7)",
         });
 
-        return (  
+        return (
             <header ref={headerRef} className="header header--build">
                 <Link to="/"><img src={logo} onClick={submitSongsHandler} className="header__logo header__logo--center" alt="Build-A-List Logo which has the text written out with headphones above the A, and a hammer over the t." /></Link>
                 <NavLink to="/playlists" className="header__my-playlists nav__item">My Playlists</NavLink>
@@ -34,13 +31,13 @@ function PageHeader({ loggedIn, buildMode, chosenPlaylist, chosenSongs, spotifyA
         );
     }
 
-    if(loggedIn) {
+    if (loggedIn) {
         gsap.to(headerRef.current, {
             backgroundColor: "#39a0ca",
             duration: 2,
             ease: "back.out(1.7)",
         });
-        return (  
+        return (
             <header ref={headerRef} className="header">
                 <Link to="/"><img src={logo} className="header__logo" alt="Build-A-List Logo which has the text written out with headphones above the A, and a hammer over the t." /></Link>
                 <Link to="/playlists/build" className="header__build-link">Build A Playlist</Link>
@@ -52,7 +49,7 @@ function PageHeader({ loggedIn, buildMode, chosenPlaylist, chosenSongs, spotifyA
             </header>
         );
     } else {
-        return (  
+        return (
             <header className="header header--solo">
                 <Link to="/"><img src={logo} className="header__logo header__logo--center" alt="Build-A-List Logo which has the text written out with headphones above the A, and a hammer over the t." /></Link>
             </header>
