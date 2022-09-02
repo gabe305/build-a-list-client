@@ -52,6 +52,7 @@ function PageHeader({ loggedIn, buildMode, chosenPlaylist, chosenSongs, setChose
         return (
             <header className="header header--solo">
                 <Link to="/"><img src={logo} className="header__logo header__logo--center" alt="Build-A-List Logo which has the text written out with headphones above the A, and a hammer over the t." /></Link>
+                <Link to="/playlists/build" className="header__build-link">Build A Playlist</Link>
             </header>
         );
     }
