@@ -1,6 +1,6 @@
 import './App.scss';
 import './pages/Login/Login'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Login from './pages/Login/Login';
 import HomePage from './pages/HomePage/HomePage';
 import Dashboard from './components/Dashboard/Dashboard'
@@ -38,7 +38,7 @@ function App() {
       setChosenSongs([])
       setChosenPlaylist('')
     }
-  }, [buildMode, loggedIn, chosenPlaylist, q])
+  }, [buildMode, loggedIn, chosenPlaylist])
   
   useEffect(() => {
     if (!accessToken) return
@@ -59,7 +59,7 @@ function App() {
           }))
       })
     }
-  }, [accessToken, userId, q])
+  }, [accessToken, userId])
 
   return (
     <div className="App">
