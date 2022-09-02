@@ -66,7 +66,7 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId, chosen
     return (
         <>
             <div className="song" ref={songRef}>
-                <img className="song__image" src={track.albumUrl} onClick={handlePlay} alt="Song image" />
+                <img className="song__image" src={track.albumUrl} onClick={handlePlay} alt="Song" />
                 <p className="song__title">{track.title}</p>
                 <img className="song__playlistAdd-btn" src={playlistAdd} onClick={playlistAddHandler} alt="Button to add to playlist"/>
             </div>

@@ -1,5 +1,5 @@
 import { gsap } from "gsap"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./BirdAnimation.scss"
 
 function BirdAnimation() {
@@ -28,7 +28,7 @@ function BirdAnimation() {
             repeat: -1,
             yoyo: true
         })
-    }, []);
+    }, [q]);
 
     
 
