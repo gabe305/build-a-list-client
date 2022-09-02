@@ -40,7 +40,7 @@ function SinglePlaylist({ spotifyApi, chosenPlaylist, setChosenPlaylist, buildMo
         spotifyApi.getPlaylist(playlistid).then(res => {
             setChosenPlaylist(res.body)
         })
-    }, [playlistid, chosenPlaylist])
+    }, [playlistid, chosenPlaylist, setChosenPlaylist, spotifyApi])
     
     return (  
         <section className="single-playlist__page">

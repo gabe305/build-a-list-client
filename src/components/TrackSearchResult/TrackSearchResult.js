@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import playlistAdd from "../../assets/icons/playlistAdd.svg"
-import PlaylistModal from "../PlaylistModal/PlaylistModal"
 import "./TrackSearchResult.scss"
 import { gsap } from "gsap"
 
@@ -9,6 +8,7 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId, chosen
     const [added, setAdded] = useState(false);
     const songRef = useRef()
     const songTween = useRef()
+    let stringifiedSongs = chosenSongs ? JSON.stringify(chosenSongs) : null
 
     useEffect(() => {
         songTween.current = gsap.to(songRef.current, {
@@ -26,7 +26,7 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId, chosen
             setAdded(false)
             songTween.current.reverse()
         }
-    }, [JSON.stringify(chosenSongs)]);
+    }, [stringifiedSongs, chosenSongs.length]);
 
     const playlistAddHandler = () => {
         if(!added) {
@@ -66,9 +66,9 @@ function TrackSearchResult({ track, chooseTrack, playlistResults, userId, chosen
     return (
         <>
             <div className="song" ref={songRef}>
-                <img className="song__image" src={track.albumUrl} onClick={handlePlay} />
+                <img className="song__image" src={track.albumUrl} onClick={handlePlay} alt="Song image" />
                 <p className="song__title">{track.title}</p>
-                <img className="song__playlistAdd-btn" src={playlistAdd} onClick={playlistAddHandler} />
+                <img className="song__playlistAdd-btn" src={playlistAdd} onClick={playlistAddHandler} alt="Button to add to playlist"/>
             </div>
         </>
     );

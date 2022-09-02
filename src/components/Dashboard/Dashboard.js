@@ -40,7 +40,7 @@ function Dashboard({ accessToken, spotifyApi, playlistResults, userId, buildMode
         }).catch(err => console.log(err))
 
         return () => cancel = true
-    }, [search, accessToken])
+    }, [search, accessToken, spotifyApi])
 
     return (
         <div className="search">

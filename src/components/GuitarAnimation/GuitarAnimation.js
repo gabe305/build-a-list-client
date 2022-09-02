@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 function GuitarAnimation() {
     const el = useRef();
     const q = gsap.utils.selector(el);
-    const tl = useRef();
 
     useEffect(() => {
         gsap.to(q(".left-hand"), {
@@ -19,7 +18,7 @@ function GuitarAnimation() {
             yoyo: true,
             duration: 1
         })
-    }, [])
+    }, [q])
     return (
         <svg className="build-form__animation" ref={el} width="398" height="408" viewBox="0 0 398 408" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="398" height="408" fill="#F5F5F5" />

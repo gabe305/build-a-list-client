@@ -2,7 +2,7 @@ import logo from "../../assets/images/logo.png"
 import "./PageHeader.scss"
 import { NavLink, Link } from "react-router-dom";
 import { gsap } from "gsap";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 function PageHeader({ loggedIn, buildMode, chosenPlaylist, chosenSongs, setChosenSongs, spotifyApi }) {
     const headerRef = useRef()
